@@ -1,38 +1,27 @@
 <template>
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-        @select="handleSelect">
-        <el-menu-item index="0">LOGO</el-menu-item>
-        <div class="flex-grow" />
-        <el-menu-item index="1">Processing Center</el-menu-item>
-        <el-sub-menu index="2">
-            <template #title>Workspace</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-            <el-sub-menu index="2-4">
-                <template #title>item four</template>
-                <el-menu-item index="2-4-1">item one</el-menu-item>
-                <el-menu-item index="2-4-2">item two</el-menu-item>
-                <el-menu-item index="2-4-3">item three</el-menu-item>
-            </el-sub-menu>
-        </el-sub-menu>
-    </el-menu>
     <div>
-        hello world
+        <el-carousel trigger="click" height="150px">
+            <el-carousel-item v-for="item in 4" :key="item">
+                <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel>
     </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const activeIndex = ref('1')
-const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-}
-</script>
-
 <style>
-.flex-grow {
-    flex-grow: 1;
+.el-carousel__item h3 {
+    color: #475669;
+    opacity: 0.75;
+    line-height: 150px;
+    margin: 0;
+    text-align: center;
+}
+
+.el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+    background-color: #d3dce6;
 }
 </style>
