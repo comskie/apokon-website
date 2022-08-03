@@ -1,5 +1,7 @@
 import { defineNuxtConfig } from "nuxt";
 
+const lifecycle = process.env.npm_lifecycle_event;
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   css: ["@/assets/css/main.css", "element-plus/dist/index.css"],
@@ -11,7 +13,8 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
 
   build: {
-    transpile: ["element-plus"],
+    transpile:
+      lifecycle === "build" || lifecycle === "generate" ? ["element-plus"] : [],
     splitChunks: {
       layouts: true,
       pages: true,
