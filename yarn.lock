@@ -961,7 +961,7 @@ acorn@^7.0.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
-acorn@^8.5.0, acorn@^8.6.0, acorn@^8.7.0, acorn@^8.7.1:
+acorn@^8.5.0, acorn@^8.6.0, acorn@^8.7.0, acorn@^8.7.1, acorn@^8.8.0:
   version "8.8.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.8.0.tgz#88c0187620435c7f6015803f5539dae05a9dbea8"
   integrity sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==
@@ -3231,11 +3231,12 @@ mkdirp@^1.0.3:
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
 mlly@^0.5.2, mlly@^0.5.3, mlly@^0.5.4, mlly@^0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/mlly/-/mlly-0.5.5.tgz#80643b3a96671a0d6f41411e3daf7e4e188544d5"
-  integrity sha512-2R4JT/SxRDPexomw4rmHYY/gWAGmL9Kkq1OR76Ua6w+P340a1aBDTWzKo2kAlxzrG82OdXs5VB9Lmcmyit0Obg==
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/mlly/-/mlly-0.5.7.tgz#3b058c36268314a1670f89767d40eead66099b93"
+  integrity sha512-rz+n2i9862ymLH+UDlHpsuTVyCIAs+9WejS2De2VUlAKdpq8OJ9x/C2M7nNUMLEW1H+D6n0uZlpz8+tMGxCmyQ==
   dependencies:
-    pathe "^0.3.2"
+    acorn "^8.8.0"
+    pathe "^0.3.3"
     pkg-types "^0.3.3"
 
 mri@^1.2.0:
@@ -3662,7 +3663,7 @@ pathe@^0.2.0:
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
   integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
 
-pathe@^0.3.0, pathe@^0.3.2:
+pathe@^0.3.0, pathe@^0.3.2, pathe@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.3.tgz#8d6d70a25d4db6024ed4d59e59c1bf80fcf18753"
   integrity sha512-x3nrPvG0HDSDzUiJ0WqtzhN4MD+h5B+dFJ3/qyxVuARlr4Y3aJv8gri2cZzp9Z8sGs2a+aG9gNbKngh3gme57A==
@@ -4790,9 +4791,9 @@ unctx@^1.1.4:
     unplugin "^0.6.1"
 
 undici@^5.2.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-5.8.0.tgz#dec9a8ccd90e5a1d81d43c0eab6503146d649a4f"
-  integrity sha512-1F7Vtcez5w/LwH2G2tGnFIihuWUlc58YidwLiCv+jR2Z50x0tNXpRRw7eOIJ+GvqCqIkg9SB7NWAJ/T9TLfv8Q==
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.8.1.tgz#511d43ff6be02f84ec2513ae7f4b07c589319272"
+  integrity sha512-iDRmWX4Zar/4A/t+1LrKQRm102zw2l9Wgat3LtTlTn8ykvMZmAmpq9tjyHEigx18FsY7IfATvyN3xSw9BDz0eA==
 
 unenv@^0.5.2:
   version "0.5.2"
@@ -5141,9 +5142,9 @@ yaml@^1.10.0, yaml@^1.10.2:
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
 yargs-parser@^21.0.0:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.0.1.tgz#0267f286c877a4f0f728fceb6f8a3e4cb95c6e35"
-  integrity sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==
+  version "21.1.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.0.tgz#a11d06a3bf57f064e951aa3ef55fcf3a5705f876"
+  integrity sha512-xzm2t63xTV/f7+bGMSRzLhUNk1ajv/tDoaD5OeGyC3cFo2fl7My9Z4hS3q2VdQ7JaLvTxErO8Jp5pRIFGMD/zg==
 
 yargs@^17.2.1, yargs@^17.5.1:
   version "17.5.1"
