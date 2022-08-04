@@ -1,31 +1,26 @@
 <template>
-    <div>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-            @select="handleSelect">
-            <el-menu-item index="0">
-                <NuxtLink to="/">
-                    <span class="font-semibold">
-                        Apokon Elementary School
-                    </span>
-                </NuxtLink>
-            </el-menu-item>
-            <div class="flex-grow" />
-            <el-menu-item index="1">
-                <NuxtLink to="/history">History</NuxtLink>
-            </el-menu-item>
-            <el-menu-item index="2">
-                <NuxtLink to="/admissions">Admissions</NuxtLink>
-            </el-menu-item>
-        </el-menu>
-        <slot />
-    </div>
+  <div>
+    <nav class="p-4 border-b">
+      <div class="flex flex-row justify-between">
+        <div class="font-bold">
+          <NuxtLink to="/">APOKON</NuxtLink>
+        </div>
+        <div class="grid grid-flow-col gap-2">
+          <NuxtLink to="/history">History</NuxtLink>
+          <NuxtLink to="/admissions">Admissions</NuxtLink>
+        </div>
+      </div>
+      <div></div>
+    </nav>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const activeIndex = ref('1')
+const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-}
+  console.log(key, keyPath);
+};
 </script>
