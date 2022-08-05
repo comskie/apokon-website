@@ -34,8 +34,8 @@ const { isMenuActive, toggleMenu, collapseMenu } = useMenu();
   <nav class="border-b">
     <div class="bg-white p-4 flex flex-row justify-between items-center">
       <!-- Logo -->
-      <div class="bg-slate-500 rounded-full">
-        <NuxtLink to="/" @click="collapseMenu()">
+      <div class="bg-slate-500 rounded-full overflow-clip">
+        <NuxtLink to="/">
           <img
             src="/logo.png"
             alt="Apokon Elementary School Logo"
