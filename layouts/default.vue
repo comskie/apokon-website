@@ -1,6 +1,6 @@
 <template>
   <div>
-   <header-layout />
+    <section-header />
     <slot />
   </div>
 </template>
