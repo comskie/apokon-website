@@ -7,6 +7,7 @@
 </template>
 
 <script lang="ts" setup>
+import 'tw-elements';
 import {useHead} from "#imports";
 
 useHead({

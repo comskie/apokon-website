@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
-    "element-plus": "^2.2.12"
+    "element-plus": "^2.2.12",
+    "tw-elements": "^1.0.0-alpha12"
   }
 }
