@@ -27,48 +27,39 @@ const useMenu = () => {
   };
 };
 
-const { isMenuActive, toggleMenu, collapseMenu } = useMenu();
+const { isMenuActive, toggleMenu } = useMenu();
 </script>
 
 <template>
-  <nav class="border-b">
-    <div class="bg-white p-4 flex flex-row justify-between items-center">
+  <nav class="border-b sm:px-4">
+    <div class="bg-white flex flex-row justify-between items-stretch">
       <!-- Logo -->
-      <div class="bg-slate-500 rounded-full overflow-clip">
-        <NuxtLink to="/">
-          <img
-            src="/logo.png"
-            alt="Apokon Elementary School Logo"
-            class="h-12 w-12"
-          />
-        </NuxtLink>
-      </div>
+      <nav-link to="/">
+        <img
+          src="/logo.png"
+          alt="Apokon Elementary School Logo"
+          class="h-12 w-12 rounded-full overflow-clip"
+        />
+      </nav-link>
 
       <!-- Hide in small devices -->
-      <div class="sm:grid hidden grid-flow-col gap-2">
-        <NuxtLink
-          class="p-2 rounded-md hover:bg-blue-200"
-          :class="{
-            'bg-blue-200': isRouteActive('/history'),
-          }"
-          to="/history"
-        >
+      <div class="sm:grid hidden grid-flow-col">
+        <nav-link to="/history" :isActive="isRouteActive('/history')">
           History
-        </NuxtLink>
-        <NuxtLink
-          class="p-2 rounded-md hover:bg-blue-200"
-          :class="{
-            'bg-blue-200': isRouteActive('/admissions'),
-          }"
-          to="/admissions"
-        >
+        </nav-link>
+        <nav-link to="/admissions" :isActive="isRouteActive('/admissions')">
           Admissions
-        </NuxtLink>
+        </nav-link>
       </div>
       <!-- Show in small devices -->
-      <div class="inline-block sm:hidden">
-        <!-- menu button -->
-        <button class="p-2 rounded-md" @click="toggleMenu()">
+      <!-- menu button -->
+      <div
+        class="sm:hidden p-2 h-full inline-flex items-center justify-center my-auto"
+      >
+        <button
+          class="p-2 rounded-full hover:bg-blue-200"
+          @click="toggleMenu()"
+        >
           <!-- Menu Icon -->
           <svg
             v-if="!isMenuActive"
@@ -107,24 +98,12 @@ const { isMenuActive, toggleMenu, collapseMenu } = useMenu();
     <!-- Mobile list menu -->
     <div class="overflow-clip bg-slate-50">
       <div class="block sm:hidden" v-if="isMenuActive">
-        <NuxtLink
-          class="block p-4 hover:bg-blue-200"
-          :class="{
-            'bg-blue-200': isRouteActive('/history'),
-          }"
-          to="/history"
-        >
+        <nav-link :isActive="isRouteActive('/history')" to="/history">
           History
-        </NuxtLink>
-        <NuxtLink
-          class="block p-4 hover:bg-blue-200"
-          :class="{
-            'bg-blue-200': isRouteActive('/admissions'),
-          }"
-          to="/admissions"
-        >
+        </nav-link>
+        <nav-link :isActive="isRouteActive('/admissions')" to="/admissions">
           Admissions
-        </NuxtLink>
+        </nav-link>
       </div>
     </div>
   </nav>
