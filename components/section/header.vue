@@ -38,8 +38,9 @@ const { isMenuActive, toggleMenu } = useMenu();
         <img
           src="/logo.png"
           alt="Apokon Elementary School Logo"
-          class="h-12 w-12 rounded-full overflow-clip"
+          class="h-12 w-12 rounded-full overflow-clip inline"
         />
+        <span class="ml-2 font-bold text-lg">Apokon Elmentary School</span>
       </nav-link>
 
       <!-- Hide in small devices -->
