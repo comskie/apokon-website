@@ -35,12 +35,14 @@ const { isMenuActive, toggleMenu } = useMenu();
     <div class="bg-white flex flex-row justify-between items-stretch">
       <!-- Logo -->
       <nav-link to="/">
-        <img
-          src="/logo.png"
-          alt="Apokon Elementary School Logo"
-          class="h-12 w-12 rounded-full overflow-clip inline"
-        />
-        <span class="ml-2 font-bold text-lg">Apokon Elmentary School</span>
+        <div class="inline-flex items-center justify-center gap-2">
+          <img
+            src="/logo.png"
+            alt="Apokon Elementary School Logo"
+            class="h-12 w-12 rounded-full overflow-clip inline"
+          />
+          <span class="font-bold text-base">Apokon Elementary School</span>
+        </div>
       </nav-link>
 
       <!-- Hide in small devices -->
