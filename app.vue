@@ -7,14 +7,14 @@
 </template>
 
 <script lang="ts" setup>
-import {useHead} from "#imports";
+import { useHead } from "#imports";
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | Apokon Elementary School` : 'Apokon Elementary School';
+    return titleChunk
+      ? `${titleChunk} | Apokon Elementary School`
+      : "Apokon Elementary School";
   },
-  link: [
-    {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
-  ],
-})
+  link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+});
 </script>
