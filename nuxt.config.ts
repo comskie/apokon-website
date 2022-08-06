@@ -4,7 +4,7 @@ import { defineNuxtConfig } from "nuxt";
 export default defineNuxtConfig({
   css: ["@/assets/css/main.css"],
 
-  target: "static",
+  ssr: false,
 
   modules: ["@nuxtjs/tailwindcss"],
 });
