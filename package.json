@@ -10,9 +10,5 @@
     "@nuxtjs/tailwindcss": "^5.3.1",
     "autoprefixer": "^10.4.8",
     "nuxt": "3.0.0-rc.6"
-  },
-  "dependencies": {
-    "animate.css": "^4.1.1",
-    "tw-elements": "^1.0.0-alpha12"
   }
 }
