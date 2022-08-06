@@ -1,4 +1,14 @@
 <script lang="ts" setup>
+// const images = [
+//   "https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg",
+//   "https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg",
+//   "https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg",
+// ];
+
+const images = randomImages(3);
+
+const currentImageIndex = ref(0);
+
 function randomImages(length: number) {
   let images = [];
   for (let index = 0; index < length; index++) {
@@ -7,96 +17,67 @@ function randomImages(length: number) {
 
   return images;
 }
+
+function selectImage(imageIndex: number) {
+  currentImageIndex.value = imageIndex;
+}
+
+function nextImage() {
+  currentImageIndex.value = (currentImageIndex.value + 1) % images.length;
+}
+
+function previousImage() {
+  currentImageIndex.value =
+    (currentImageIndex.value - 1 + images.length) % images.length;
+}
 </script>
 
 <template>
-  <div
-    id="carouselExampleCaptions"
-    class="carousel slide relative"
-    data-bs-ride="carousel"
-  >
-    <div
-      class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4"
-    >
+  <div class="relative w-full">
+    <!-- Indicators -->
+    <div class="absolute right-0 bottom-0 left-0 flex justify-center z-10">
       <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      ></button>
+        v-for="(item, index) in images"
+        :key="index"
+        @click="selectImage(index)"
+      >
+        Indicator
+      </button>
     </div>
-    <div class="carousel-inner relative w-full overflow-hidden">
-      <div class="carousel-item active relative float-left w-full">
-        <img
-          src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-          class="block w-full"
-          alt="..."
-        />
-        <div class="carousel-caption hidden md:block absolute text-center">
-          <h5 class="text-xl">First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item relative float-left w-full">
-        <img
-          src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-          class="block w-full"
-          alt="..."
-        />
-        <div class="carousel-caption hidden md:block absolute text-center">
-          <h5 class="text-xl">Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item relative float-left w-full">
-        <img
-          src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-          class="block w-full"
-          alt="..."
-        />
-        <div class="carousel-caption hidden md:block absolute text-center">
-          <h5 class="text-xl">Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
+
+    <!-- Content -->
+    <div class="relative">
+      <img
+        v-for="(imageUrl, imageIndex) in images"
+        :key="imageIndex"
+        :src="imageUrl"
+        :alt="imageUrl"
+        class="absolute"
+        :class="[
+          {
+            hidden: imageIndex !== currentImageIndex,
+          },
+        ]"
+      />
     </div>
-    <button
-      class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="prev"
-    >
-      <span
-        class="carousel-control-prev-icon inline-block bg-no-repeat"
-        aria-hidden="true"
-      ></span>
-      <span class="visually-hidden">Previous</span>
+
+    <!-- Prev button -->
+    <button @click="nextImage()" class="z-10">
+      <svg class="h-6 w-6" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+        />
+      </svg>
     </button>
-    <button
-      class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="next"
-    >
-      <span
-        class="carousel-control-next-icon inline-block bg-no-repeat"
-        aria-hidden="true"
-      ></span>
-      <span class="visually-hidden">Next</span>
+    <!-- Next button -->
+    <button @click="nextImage()" class="z-10">
+      <svg class="h-6 w-6" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+        />
+      </svg>
     </button>
   </div>
 </template>
