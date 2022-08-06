@@ -6,15 +6,5 @@ export default defineNuxtConfig({
 
   target: "static",
 
-  components: true,
-
   modules: ["@nuxtjs/tailwindcss"],
-
-  build: {
-    splitChunks: {
-      layouts: true,
-      pages: true,
-      commons: true,
-    },
-  },
 });
