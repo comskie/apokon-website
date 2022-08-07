@@ -1,7 +1,14 @@
 <script lang="ts" setup>
 import { PropType } from 'vue';
 
-const { images, slidingDuration, autoSlide, autoSlideDuration, autoSlideDirection } = defineProps({
+const {
+  images,
+  slidingDuration,
+  autoSlide,
+  autoSlideDuration,
+  autoSlideDirection,
+  autoSlideDynamicDirection,
+} = defineProps({
   images: {
     type: Array<string>,
     required: true
@@ -22,8 +29,14 @@ const { images, slidingDuration, autoSlide, autoSlideDuration, autoSlideDirectio
     type: String as PropType<'left' | 'right'>,
     default: 'right',
     validator: (value: string) => ['left', 'right'].includes(value)
+  },
+  autoSlideDynamicDirection: {
+    type: Boolean,
+    default: false,
   }
 })
+
+const dynamicAutoSlideDirection = ref(autoSlideDirection);
 
 const activeImageIndex = ref(0);
 const isSliding = ref(false);
@@ -33,7 +46,7 @@ function setActiveImage(imageIndex: number) {
 
   isSliding.value = true;
 
-  activeImageIndex.value = imageIndex;;
+  activeImageIndex.value = imageIndex;
 
   setTimeout(() => {
     isSliding.value = false;
@@ -42,10 +55,18 @@ function setActiveImage(imageIndex: number) {
 
 function slideNext() {
   setActiveImage((activeImageIndex.value + 1) % images.length);
+
+  if (autoSlideDynamicDirection) {
+    dynamicAutoSlideDirection.value = 'right';
+  }
 }
 
 function slidePrevious() {
   setActiveImage((activeImageIndex.value - 1 + images.length) % images.length);
+
+  if (autoSlideDynamicDirection) {
+    dynamicAutoSlideDirection.value = 'left';
+  }
 }
 
 function isActiveImageByIndex(imageIndex: number) {
@@ -54,7 +75,14 @@ function isActiveImageByIndex(imageIndex: number) {
 
 onMounted(() => {
   if (autoSlide) {
-    setInterval(autoSlideDirection === 'right' ? slideNext : slidePrevious, autoSlideDuration);
+    setInterval(() => {
+      const direction = autoSlideDynamicDirection ? dynamicAutoSlideDirection.value : autoSlideDirection;
+      if (direction === 'right') {
+        slideNext();
+      } else {
+        slidePrevious();
+      }
+    }, autoSlideDuration);
   }
 })
 </script>
@@ -63,8 +91,8 @@ onMounted(() => {
   <div class="relative w-full">
     <!-- Indicators -->
     <div class="absolute p-0 right-0 bottom-0 left-0 mb-4 flex justify-center gap-2 z-[2] box-border mx-[15%]">
-      <button v-for="(imageUrl, imageIndex) in images" :key="imageIndex" @click="setActiveImage(imageIndex)" :class="[
-        'w-7 h-1 border-y-[10px] box-content bg-white rounded-sm border-transparent bg-clip-padding',
+      <button v-for="(_imageUrl, imageIndex) in images" :key="imageIndex" @click="setActiveImage(imageIndex)" :class="[
+        'w-7 h-1 border-y-[10px] box-content bg-white border-transparent bg-clip-padding',
         {
           'opacity-50 hover:scale-x-110 hover:opacity-75': !isActiveImageByIndex(imageIndex),
           'scale-y-125': isActiveImageByIndex(imageIndex),
