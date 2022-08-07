@@ -6,54 +6,57 @@ const { images } = defineProps({
   },
 })
 
-const currentImageIndex = ref(0);
+const activeImageIndex = ref(0);
 
-function selectImage(imageIndex: number) {
-  currentImageIndex.value = imageIndex;
+function setActiveImage(imageIndex: number) {
+  activeImageIndex.value = imageIndex % images.length;
 }
 
-function nextImage() {
-  currentImageIndex.value = (currentImageIndex.value + 1) % images.length;
+function moveNextImage() {
+  activeImageIndex.value = (activeImageIndex.value + 1) % images.length;
 }
 
-function previousImage() {
-  currentImageIndex.value =
-    (currentImageIndex.value - 1 + images.length) % images.length;
+function movePreviousImage() {
+  activeImageIndex.value =
+    (activeImageIndex.value - 1 + images.length) % images.length;
 }
 
-function isCurrentImageIndex(imageIndex: number) {
-  return currentImageIndex.value === imageIndex;
+function isActiveImageByIndex(imageIndex: number) {
+  return activeImageIndex.value === imageIndex;
 }
+
+onMounted(() => {
+  setInterval(moveNextImage, 5000);
+})
 </script>
 
 <template>
   <div class="relative w-full">
     <!-- Indicators -->
     <div class="absolute p-0 right-0 bottom-0 left-0 mb-4 flex justify-center gap-2 z-[2] box-border mx-[15%]">
-      <button v-for="(imageUrl, imageIndex) in images" :key="imageIndex" @click="selectImage(imageIndex)" :class="[
+      <button v-for="(imageUrl, imageIndex) in images" :key="imageIndex" @click="setActiveImage(imageIndex)" :class="[
         'w-7 h-1 border-y-[10px] box-content bg-white rounded-sm border-transparent bg-clip-padding',
         {
-          'opacity-50 hover:scale-x-110 hover:opacity-75': !isCurrentImageIndex(imageIndex),
-          'scale-y-125': isCurrentImageIndex(imageIndex),
+          'opacity-50 hover:scale-x-110 hover:opacity-75': !isActiveImageByIndex(imageIndex),
+          'scale-y-125': isActiveImageByIndex(imageIndex),
         }
       ]">
       </button>
     </div>
 
     <!-- Content -->
-    <div class="w-full overflow-hidden block">
+    <div class="relative w-full overflow-hidden">
       <div v-for="(imageUrl, imageIndex) in images" :key="imageIndex" :class="[
-        'w-full',
-        {
-          'hidden': imageIndex !== currentImageIndex,
-        },
+        'float-left w-full block relative -mr-[100%] inset-0 transform transition-all duration-500 ease-in-out',
+        activeImageIndex > imageIndex ? '-translate-x-[100%]' : 'translate-x-[100%]',
+        isActiveImageByIndex(imageIndex) ? 'translate-x-0' : '',
       ]">
-        <img :src="imageUrl" :alt="imageUrl" class="block w-full float-left" />
+        <img :src="imageUrl" :alt="imageUrl" class="block w-full" />
       </div>
     </div>
 
     <!-- Prev button -->
-    <button @click="previousImage()"
+    <button @click="movePreviousImage()"
       class="absolute z-[1] inset-y-0 left-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-r hover:from-black/50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-50 group-hover:opacity-100" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -61,7 +64,7 @@ function isCurrentImageIndex(imageIndex: number) {
       </svg>
     </button>
     <!-- Next button -->
-    <button @click="nextImage()"
+    <button @click="moveNextImage()"
       class="absolute z-[1] inset-y-0 right-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-l hover:from-black/50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-50 group-hover:opacity-100" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
