@@ -16,7 +16,7 @@ const images = [
 <template>
 
   <div>
-    <carousel :images="images" />
+    <carousel :images="images" :auto-slide-dynamic-direction="true" />
 
     <div class="mt-4 flex items-center">
       <h1 class="text-3xl font-bold">Our School</h1>
