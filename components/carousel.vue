@@ -1,8 +1,14 @@
 <script lang="ts" setup>
-const { images, autoSlide, autoSlideDuration } = defineProps({
+import { PropType } from 'vue';
+
+const { images, slidingDuration, autoSlide, autoSlideDuration } = defineProps({
   images: {
     type: Array<string>,
     required: true
+  },
+  slidingDuration: {
+    type: Number,
+    default: 500,
   },
   autoSlide: {
     type: Boolean,
@@ -11,22 +17,30 @@ const { images, autoSlide, autoSlideDuration } = defineProps({
   autoSlideDuration: {
     type: Number,
     default: 5000
-  }
+  },
 })
 
 const activeImageIndex = ref(0);
+const isSliding = ref(false);
 
 function setActiveImage(imageIndex: number) {
-  activeImageIndex.value = imageIndex % images.length;
+  if (isSliding.value) return;
+
+  isSliding.value = true;
+
+  activeImageIndex.value = imageIndex;;
+
+  setTimeout(() => {
+    isSliding.value = false;
+  }, slidingDuration);
 }
 
 function moveNextImage() {
-  activeImageIndex.value = (activeImageIndex.value + 1) % images.length;
+  setActiveImage((activeImageIndex.value + 1) % images.length);
 }
 
 function movePreviousImage() {
-  activeImageIndex.value =
-    (activeImageIndex.value - 1 + images.length) % images.length;
+  setActiveImage((activeImageIndex.value - 1 + images.length) % images.length);
 }
 
 function isActiveImageByIndex(imageIndex: number) {
@@ -58,7 +72,7 @@ onMounted(() => {
     <div class="relative w-full overflow-hidden">
       <div v-for="(imageUrl, imageIndex) in images" :key="imageIndex" :class="[
         'float-left w-full block relative -mr-[100%] inset-0',
-        'transform transition-all duration-500 ease-in-out',
+        `transform transition-all duration-${slidingDuration} ease-in-out`,
         activeImageIndex > imageIndex ? '-translate-x-[100%]' : 'translate-x-[100%]',
         isActiveImageByIndex(imageIndex) ? 'translate-x-0' : '',
       ]">
