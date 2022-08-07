@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { PropType } from 'vue';
 
-const { images, slidingDuration, autoSlide, autoSlideDuration } = defineProps({
+const { images, slidingDuration, autoSlide, autoSlideDuration, autoSlideDirection } = defineProps({
   images: {
     type: Array<string>,
     required: true
@@ -18,6 +18,11 @@ const { images, slidingDuration, autoSlide, autoSlideDuration } = defineProps({
     type: Number,
     default: 5000
   },
+  autoSlideDirection: {
+    type: String as PropType<'left' | 'right'>,
+    default: 'right',
+    validator: (value: string) => ['left', 'right'].includes(value)
+  }
 })
 
 const activeImageIndex = ref(0);
@@ -49,7 +54,7 @@ function isActiveImageByIndex(imageIndex: number) {
 
 onMounted(() => {
   if (autoSlide) {
-    setInterval(moveNextImage, autoSlideDuration);
+    setInterval(autoSlideDirection === 'right' ? moveNextImage : movePreviousImage, autoSlideDuration);
   }
 })
 </script>
