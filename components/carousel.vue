@@ -1,8 +1,13 @@
 <script lang="ts" setup>
-const { images } = defineProps({
+const { images, autoSlide } = defineProps({
   images: {
     type: Array<string>,
     required: true
+  },
+
+  autoSlide: {
+    type: Boolean,
+    default: true
   },
 })
 
@@ -26,7 +31,9 @@ function isActiveImageByIndex(imageIndex: number) {
 }
 
 onMounted(() => {
-  setInterval(moveNextImage, 5000);
+  if (autoSlide) {
+    setInterval(moveNextImage, 5000);
+  }
 })
 </script>
 
