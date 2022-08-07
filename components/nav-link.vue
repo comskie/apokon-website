@@ -13,10 +13,12 @@ defineProps({
 
 <template>
   <NuxtLink
-    class="text-sm tracking-wide p-3 sm:p-2 block sm:inline-flex items-center justify-center h-full hover:bg-blue-200/50 focus:bg-none"
     :class="[
+      'tracking-wide hover:bg-indigo-50 hover:text-indigo-500 focus:bg-indigo-50 flex items-center uppercase text-sm',
+      'sm:inline-block sm:border-b-2 sm:p-4 sm:justify-center',
+      'block p-3 border-transparent',
       {
-        'focus:bg-blue-200/50 border-r-2 sm:border-r-0 sm:border-b-2 border-blue-500 text-blue-500':
+        'sm:border-b-indigo-500 sm:border-r-0 border-r-2 border-r-indigo-500 text-indigo-500':
           isActive,
       },
     ]"
