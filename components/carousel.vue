@@ -40,11 +40,11 @@ function setActiveImage(imageIndex: number) {
   }, slidingDuration);
 }
 
-function moveNextImage() {
+function slideNext() {
   setActiveImage((activeImageIndex.value + 1) % images.length);
 }
 
-function movePreviousImage() {
+function slidePrevious() {
   setActiveImage((activeImageIndex.value - 1 + images.length) % images.length);
 }
 
@@ -54,7 +54,7 @@ function isActiveImageByIndex(imageIndex: number) {
 
 onMounted(() => {
   if (autoSlide) {
-    setInterval(autoSlideDirection === 'right' ? moveNextImage : movePreviousImage, autoSlideDuration);
+    setInterval(autoSlideDirection === 'right' ? slideNext : slidePrevious, autoSlideDuration);
   }
 })
 </script>
@@ -86,7 +86,7 @@ onMounted(() => {
     </div>
 
     <!-- Prev button -->
-    <button @click="movePreviousImage()"
+    <button @click="slidePrevious()"
       class="absolute z-[1] inset-y-0 left-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-r hover:from-black/50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-50 group-hover:opacity-100" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -94,7 +94,7 @@ onMounted(() => {
       </svg>
     </button>
     <!-- Next button -->
-    <button @click="moveNextImage()"
+    <button @click="slideNext()"
       class="absolute z-[1] inset-y-0 right-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-l hover:from-black/50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-50 group-hover:opacity-100" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
