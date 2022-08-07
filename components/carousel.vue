@@ -1,22 +1,12 @@
 <script lang="ts" setup>
-const images = [
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg",
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg",
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg",
-];
-
-// const images = randomImages(3);
+const { images } = defineProps({
+  images: {
+    type: Array<string>,
+    required: true
+  },
+})
 
 const currentImageIndex = ref(0);
-
-function randomImages(length: number) {
-  let images = [];
-  for (let index = 0; index < length; index++) {
-    images[index] = `https://picsum.photos/1080/566?random=${index}`;
-  }
-
-  return images;
-}
 
 function selectImage(imageIndex: number) {
   currentImageIndex.value = imageIndex;
