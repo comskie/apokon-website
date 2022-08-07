@@ -1,5 +1,7 @@
 {
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "volar.completion.preferredAttrNameCase": "auto-camel",
+  "volar.completion.preferredTagNameCase": "pascal"
 }
