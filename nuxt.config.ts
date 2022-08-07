@@ -7,11 +7,10 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
 
   typescript: {
-    shim: false
+    shim: false,
   },
 
   tailwindcss: {
-    exposeConfig: true,
-    viewer: false
-  }
+    viewer: false,
+  },
 });
