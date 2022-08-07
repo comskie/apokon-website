@@ -7,4 +7,9 @@ export default defineNuxtConfig({
   ssr: false,
 
   modules: ["@nuxtjs/tailwindcss"],
+
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: false
+  }
 });
