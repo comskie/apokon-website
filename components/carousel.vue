@@ -57,7 +57,8 @@ onMounted(() => {
     <!-- Content -->
     <div class="relative w-full overflow-hidden">
       <div v-for="(imageUrl, imageIndex) in images" :key="imageIndex" :class="[
-        'float-left w-full block relative -mr-[100%] inset-0 transform transition-all duration-500 ease-in-out',
+        'float-left w-full block relative -mr-[100%] inset-0',
+        'transform transition-all duration-500 ease-in-out',
         activeImageIndex > imageIndex ? '-translate-x-[100%]' : 'translate-x-[100%]',
         isActiveImageByIndex(imageIndex) ? 'translate-x-0' : '',
       ]">
