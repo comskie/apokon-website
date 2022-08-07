@@ -1,24 +1,44 @@
 <script lang="ts" setup>
-const { images } = defineProps({
+const { images, slidingDuration, autoSlide, autoSlideDuration } = defineProps({
   images: {
     type: Array<string>,
     required: true
   },
+  slidingDuration: {
+    type: Number,
+    default: 500
+  },
+  autoSlide: {
+    type: Boolean,
+    default: true
+  },
+  autoSlideDuration: {
+    type: Number,
+    default: 5000
+  },
 })
 
 const activeImageIndex = ref(0);
+const isSliding = ref(false);
 
 function setActiveImage(imageIndex: number) {
+  if (isSliding.value) {
+    return;
+  }
+  isSliding.value = true;
   activeImageIndex.value = imageIndex % images.length;
+
+  setTimeout(() => {
+    isSliding.value = false;
+  }, slidingDuration);
 }
 
-function moveNextImage() {
-  activeImageIndex.value = (activeImageIndex.value + 1) % images.length;
+function slideNext() {
+  setActiveImage(activeImageIndex.value + 1);
 }
 
-function movePreviousImage() {
-  activeImageIndex.value =
-    (activeImageIndex.value - 1 + images.length) % images.length;
+function slidePrevious() {
+  setActiveImage(activeImageIndex.value - 1);
 }
 
 function isActiveImageByIndex(imageIndex: number) {
@@ -26,7 +46,9 @@ function isActiveImageByIndex(imageIndex: number) {
 }
 
 onMounted(() => {
-  setInterval(moveNextImage, 5000);
+  if (autoSlide) {
+    setInterval(slideNext, autoSlideDuration);
+  }
 })
 </script>
 
@@ -47,7 +69,8 @@ onMounted(() => {
     <!-- Content -->
     <div class="relative w-full overflow-hidden">
       <div v-for="(imageUrl, imageIndex) in images" :key="imageIndex" :class="[
-        'float-left w-full block relative -mr-[100%] inset-0 transform transition-all duration-500 ease-in-out',
+        'float-left w-full block relative -mr-[100%] inset-0',
+        `transform transition-all duration-${slidingDuration} ease-in-out`,
         activeImageIndex > imageIndex ? '-translate-x-[100%]' : 'translate-x-[100%]',
         isActiveImageByIndex(imageIndex) ? 'translate-x-0' : '',
       ]">
@@ -56,7 +79,7 @@ onMounted(() => {
     </div>
 
     <!-- Prev button -->
-    <button @click="movePreviousImage()"
+    <button @click="slidePrevious()"
       class="absolute z-[1] inset-y-0 left-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-r hover:from-black/50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-50 group-hover:opacity-100" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -64,7 +87,7 @@ onMounted(() => {
       </svg>
     </button>
     <!-- Next button -->
-    <button @click="moveNextImage()"
+    <button @click="slideNext()"
       class="absolute z-[1] inset-y-0 right-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-l hover:from-black/50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-50 group-hover:opacity-100" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
