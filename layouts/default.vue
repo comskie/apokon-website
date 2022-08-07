@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section-header />
+    <Navbar />
     <slot />
   </div>
 </template>
