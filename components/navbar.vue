@@ -43,7 +43,9 @@ const { isMenuActive, toggleMenu } = useMenu();
           alt="Apokon Elementary School Logo"
           class="h-10 w-10 rounded-full overflow-clip inline"
         />
-        <span class="font-semibold tracking-wide hidden sm:block text-indigo-500 uppercase">
+        <span
+          class="font-semibold tracking-wide hidden sm:block text-indigo-500 uppercase"
+        >
           Apokon Elementary School
         </span>
       </NuxtLink>
@@ -58,6 +60,7 @@ const { isMenuActive, toggleMenu } = useMenu();
           <NavLink to="/admissions" :isActive="isRouteActive('/admissions')">
             Admissions
           </NavLink>
+          <NavLink to="/news" :isActive="isRouteActive('/news')">News</NavLink>
         </div>
         <!-- Show in small devices -->
         <!-- menu button -->
@@ -107,12 +110,14 @@ const { isMenuActive, toggleMenu } = useMenu();
     <!-- Mobile list menu -->
     <div class="overflow-clip bg-slate-50">
       <div class="block sm:hidden" v-if="isMenuActive">
+        <NavLink to="/" :isActive="isRouteActive('/')"> Home </NavLink>
         <NavLink :isActive="isRouteActive('/history')" to="/history">
           History
         </NavLink>
         <NavLink :isActive="isRouteActive('/admissions')" to="/admissions">
           Admissions
         </NavLink>
+        <NavLink to="/news" :isActive="isRouteActive('/news')">News</NavLink>
       </div>
     </div>
   </nav>
