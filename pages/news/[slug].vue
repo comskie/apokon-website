@@ -5,8 +5,7 @@ const res = await useFetch(
   `https://apokon-cms.herokuapp.com/api/posts?filter[slug]=${route.params.slug}`
 );
 
-const { data: posts } = res.data.value as { data: Post[] };
-const post = posts[0];
+const { data: post } = res.data.value as { data: Post };
 </script>
 
 <template>
