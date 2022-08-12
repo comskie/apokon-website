@@ -16,9 +16,7 @@ const post = posts[0];
       <div class="mt-4">
         <article class="prose">
           <h1>{{ post.title }}</h1>
-          <div>
-            {{ post.content }}
-          </div>
+          <div v-html="post.content"></div>
         </article>
       </div>
     </div>
