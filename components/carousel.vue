@@ -129,11 +129,11 @@ onMounted(() => {
     <!-- Prev button -->
     <button
       @click="slidePrevious()"
-      class="absolute z-[1] inset-y-0 left-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-r hover:from-black/50"
+      class="absolute z-[1] inset-y-0 left-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-r hover:from-black/50 focus:outline-none"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8 text-white opacity-50 group-hover:opacity-100"
+        class="h-8 w-8 text-white opacity-50 group-hover:opacity-100 group-focus:opacity-100"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -149,11 +149,11 @@ onMounted(() => {
     <!-- Next button -->
     <button
       @click="slideNext()"
-      class="absolute z-[1] inset-y-0 right-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-l hover:from-black/50"
+      class="absolute z-[1] inset-y-0 right-0 w-[15%] flex items-center justify-center group hover:bg-gradient-to-l hover:from-black/50 focus:outline-none"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8 text-white opacity-50 group-hover:opacity-100"
+        class="h-8 w-8 text-white opacity-50 group-hover:opacity-100 group-focus:opacity-100"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
