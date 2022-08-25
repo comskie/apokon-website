@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <article class="prose text-justify">
+    <article class="prose text-justify py-12 px-4">
       <img src="/images/teachers.jpg" alt="">
       <h1 class="text-center">APOKON ELEMENTARY SCHOOL</h1>
       <h2>History</h2>
