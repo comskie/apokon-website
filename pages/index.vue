@@ -19,16 +19,15 @@ const images = [
     <div class="mt-4 flex items-center">
       <h1 class="text-3xl font-bold">Our School</h1>
     </div>
-    <div class="grid md:grid-cols-2 gap-4 grid-cols-1">
+    <div class="grid md:grid-cols-2 gap-4 grid-cols-1 sm:p-12 p-4">
       <div class="flex items-center">
         <h2 class="text-center font-bold text-3xl">
           APOKON ELEMENTARY SCHOOL Project WATCH 2021- KICK-OFF PROGRAM
         </h2>
       </div>
-      <div class="">
+      <div class="flex items-center">
         <iframe
-          width="560"
-          height="315"
+          class="w-full aspect-video"
           src="https://www.youtube.com/embed/2llySz5u5cs"
           title="YouTube video player"
           frameborder="0"
