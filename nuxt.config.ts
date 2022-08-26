@@ -13,6 +13,4 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
-
-  ssr: false,
 });
