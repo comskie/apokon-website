@@ -60,7 +60,7 @@ const { isMenuActive, toggleMenu } = useMenu();
           <NavLink to="/admissions" :isActive="isRouteActive('/admissions')">
             Admissions
           </NavLink>
-          <NavLink to="/news" :isActive="isRouteActive('/news')">News</NavLink>
+          <!-- <NavLink to="/news" :isActive="isRouteActive('/news')">News</NavLink> -->
         </div>
         <!-- Show in small devices -->
         <!-- menu button -->
