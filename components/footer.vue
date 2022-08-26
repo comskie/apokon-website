@@ -18,7 +18,7 @@
             placeholder="Email Address"
             class="rounded-md"
             type="email"
-            name="password"
+            name="email"
             required
           />
           <textarea
