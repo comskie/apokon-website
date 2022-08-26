@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import { useHead } from "#imports";
+useHead({
+  title: "Admissions",
+});
+</script>
+
 <template>
   <div class="flex justify-center">
     <article class="prose text-justify py-12 px-4">
