@@ -1,55 +1,60 @@
 <template>
   <div class="p-12 bg-[#111926]">
-    <div class="flex justify-center">
-      <form
-        action="https://formsubmit.co/d371b9289942a9f0e32064bc7f8dfb3b"
-        method="POST"
-      >
-        <div class="w-96 flex flex-col gap-2">
-          <div class="font-bold text-2xl text-indigo-500">Contact Us</div>
-          <input
-            placeholder="Name"
-            class="rounded-md"
-            type="text"
-            name="name"
-            required
-          />
-          <input
-            placeholder="Email Address"
-            class="rounded-md"
-            type="email"
-            name="email"
-            required
-          />
-          <textarea
-            name="message"
-            class="rounded-md"
-            cols="30"
-            rows="5"
-            required
-            placeholder="Message"
-          ></textarea>
-          <div class="flex justify-end">
-            <button
-              class="px-4 py-2 text-white text-sm rounded-md bg-indigo-600 inline-flex flex-row gap-2 hover:bg-indigo-700 focus:bg-indigo-700 focus:ring-indigo-400 focus:ring"
-              type="submit"
-            >
-              Send
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5"
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <!-- <div>
+        <div class="font-bold text-2xl text-indigo-500">Contact Us</div>
+        <div></div>
+      </div> -->
+      <div class="max-w-sm w-full">
+        <form
+          action="https://formsubmit.co/d371b9289942a9f0e32064bc7f8dfb3b"
+          method="POST"
+        >
+          <div class="w-full flex flex-col gap-2">
+            <div class="font-bold text-2xl text-indigo-500">Message Us</div>
+            <input
+              placeholder="Name"
+              class="rounded-md w-full"
+              type="text"
+              name="name"
+              required
+            />
+            <input
+              placeholder="Email Address"
+              class="rounded-md w-full"
+              type="email"
+              name="email"
+              required
+            />
+            <textarea
+              name="message"
+              class="rounded-md w-full"
+              rows="3"
+              required
+              placeholder="Message"
+            ></textarea>
+            <div class="flex justify-end">
+              <button
+                class="px-4 py-2 text-white text-sm rounded-md bg-indigo-600 inline-flex flex-row gap-2 hover:bg-indigo-700 focus:bg-indigo-700 focus:ring-indigo-400 focus:ring"
+                type="submit"
               >
-                <path
-                  d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z"
-                />
-              </svg>
-            </button>
+                Send
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <div class="mt-4 flex justify-between items-center text-white">
       <div>© Copyright 2022. All rights reserved.</div>

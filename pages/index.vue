@@ -16,9 +16,6 @@ const images = [
   <div>
     <carousel :images="images" :auto-slide-dynamic-direction="true" />
 
-    <div class="mt-4 flex items-center">
-      <h1 class="text-3xl font-bold">Our School</h1>
-    </div>
     <div class="grid md:grid-cols-2 gap-4 grid-cols-1 sm:p-12 p-4">
       <div class="flex items-center">
         <h2 class="text-center font-bold text-3xl">
