@@ -6,9 +6,9 @@ useHead({
 });
 
 const images = [
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg",
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg",
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg",
+  "/images/carousel_1.jpg",
+  "/images/carousel_2.jpg",
+  "/images/carousel_3.jpg",
 ];
 </script>
 
