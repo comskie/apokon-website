@@ -2,7 +2,7 @@
   <div class="p-12 bg-[#111926]">
     <div class="flex justify-center">
       <form
-        action="https://formsubmit.co/apokon.monitoring@gmail.com"
+        action="https://formsubmit.co/d371b9289942a9f0e32064bc7f8dfb3b"
         method="POST"
       >
         <div class="w-96 flex flex-col gap-2">
