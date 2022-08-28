@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+import "@fancyapps/ui/dist/fancybox.esm";
+import "@fancyapps/ui/dist/fancybox.css";
+</script>
+
 <template>
   <div class="py-12 px-4">
     <div>
