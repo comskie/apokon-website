@@ -1,5 +1,5 @@
 <template>
-  <div class="p-12 bg-[#111926]">
+  <div class="sm:p-12 p-4 bg-[#111926]">
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <!-- <div>
         <div class="font-bold text-2xl text-indigo-500">Contact Us</div>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="mt-4 flex justify-between items-center text-white">
-      <div>© Copyright 2022. All rights reserved.</div>
+      <span class="sm:text-base text-sm">© Copyright 2022. All rights reserved.</span>
       <div class="flex flex-row gap-2">
         <a
           href="https://www.facebook.com/AES128768.gov.ph"
