@@ -1,48 +1,20 @@
-<script lang="ts" setup>
-import "@fancyapps/ui/dist/fancybox.esm";
-import "@fancyapps/ui/dist/fancybox.css";
-</script>
-
 <template>
   <div class="py-12 px-4">
     <div>
       <span class="font-semibold text-lg">This Is Album 1</span>
-      <div class="mt-2 grid sm:grid-cols-6 grid-cols-2 gap-4">
-        <img
-          src="https://api.lorem.space/image/face?hash=3uhoa9si"
-          alt="Image 1"
-          class="w-40 h-40 object-cover object-center rounded-md hover:cursor-pointer"
-          data-fancybox="gallery"
-        />
-        <img
-          src="https://api.lorem.space/image/face?hash=d91kai5n"
-          alt="Image 1"
-          class="w-40 h-40 object-cover object-center rounded-md hover:cursor-pointer"
-          data-fancybox="gallery"
-        />
-        <img
-          src="https://api.lorem.space/image/face?hash=psrx040e"
-          alt="Image 1"
-          class="w-40 h-40 object-cover object-center rounded-md hover:cursor-pointer"
-          data-fancybox="gallery"
-        />
-        <img
-          src="https://api.lorem.space/image/face?hash=zhvt1cpa"
-          alt="Image 1"
-          class="w-40 h-40 object-cover object-center rounded-md hover:cursor-pointer"
-          data-fancybox="gallery"
-        />
-        <img
-          src="https://api.lorem.space/image/face?hash=k36y1hj7"
-          alt="Image 1"
-          class="w-40 h-40 object-cover object-center rounded-md hover:cursor-pointer"
-          data-fancybox="gallery"
+      <ImageGrid class="mt-2">
+        <ImageTile
+          v-for="i in 5"
+          :key="i"
+          :src="`https://api.lorem.space/image/face?hash=${i}`"
+          :alt="`Image ${i}`"
+          data-fancybox="view-album-1"
         />
         <NuxtLink
           to="/gallery/album-1"
-          class="w-40 h-40 bg-slate-100 hover:bg-slate-200 rounded-md"
+          class="h-full w-full bg-slate-100 hover:bg-slate-200 rounded-md"
         >
-          <div class="flex justify-center items-center h-full">
+          <div class="flex justify-center items-center h-full w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -59,7 +31,7 @@ import "@fancyapps/ui/dist/fancybox.css";
             </svg>
           </div>
         </NuxtLink>
-      </div>
+      </ImageGrid>
     </div>
   </div>
 </template>
