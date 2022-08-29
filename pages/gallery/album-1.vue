@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import "@fancyapps/ui/dist/fancybox.esm";
 import "@fancyapps/ui/dist/fancybox.css";
+useHead({
+  title: "Gallery",
+});
 </script>
 
 <template>
