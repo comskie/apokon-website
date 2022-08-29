@@ -12,7 +12,7 @@ useHead({
         <ImageTile
           v-for="i in 5"
           :key="i"
-          :src="`https://api.lorem.space/image/face?hash=${i}`"
+          :src="`https://api.lorem.space/image/fashion?hash=${i}`"
           :alt="`Image ${i}`"
           data-fancybox="view-album-1"
         />
