@@ -1,8 +1,14 @@
 <script lang="ts" setup>
-import "@fancyapps/ui/dist/fancybox.esm";
-import "@fancyapps/ui/dist/fancybox.css";
+import { Fancybox } from "@fancyapps/ui/dist/fancybox.esm";
+
 useHead({
   title: "Gallery",
+});
+
+Fancybox.bind("[data-fancybox]", {
+  Toolbar: {
+    display: ["zoom","fullscreen", "thumbs", "close"],
+  },
 });
 </script>
 
