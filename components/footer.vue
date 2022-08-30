@@ -57,7 +57,9 @@
       </div>
     </div>
     <div class="mt-4 flex justify-between items-center text-white">
-      <span class="sm:text-base text-sm">© Copyright 2022. All rights reserved.</span>
+      <span class="sm:text-base text-sm">
+        © Copyright 2022. All rights reserved.
+      </span>
       <div class="flex flex-row gap-2">
         <a
           href="https://www.facebook.com/AES128768.gov.ph"
