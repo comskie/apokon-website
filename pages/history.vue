@@ -8,7 +8,7 @@ useHead({
   <div class="flex justify-center relative">
     <article class="prose sm:prose-lg max-w-4xl text-justify py-12 px-4">
       <h1 class="text-center">History</h1>
-      <!-- <img src="/images/teachers.jpg" alt="" /> -->
+      <img src="/images/teachers.jpg" alt="Teachers" />
       <h2 class="text-center">APOKON ELEMENTARY SCHOOL</h2>
 
       <p class="indent-4">
@@ -64,7 +64,7 @@ useHead({
       </p>
     </article>
     <div
-      class="bg-[url('/images/teachers.jpg')] opacity-10 absolute top-0 bottom-0 right-0 left-0 z-0"
+      class="bg-[url('/images/teachers.jpg')] opacity-10 absolute top-0 bottom-0 right-0 left-0 -z-[2]"
     ></div>
   </div>
 </template>
