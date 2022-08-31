@@ -2,21 +2,25 @@
 useHead({
   title: "Gallery",
 });
+
+const { data: resData } = await useFetch("/api/gallery");
+const gallery = resData.value.data;
 </script>
 
 <template>
   <div class="py-12 px-4">
     <div>
-      <span class="font-semibold text-lg">This Is Album 1</span>
-      <ImageGrid class="mt-2">
-        <ImageTile
-          v-for="i in 5"
-          :key="i"
-          :src="`https://api.lorem.space/image/fashion?hash=${i}`"
-          :alt="`Image ${i}`"
-          data-fancybox="view-album-1"
-        />
-        <NuxtLink
+      <div v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
+        <span class="font-semibold text-lg"> {{ album.title }} </span>
+        <ImageGrid class="mt-2">
+          <ImageTile
+            v-for="i in album.length"
+            :key="i"
+            :src="`${album.path}/${i}.jpg`"
+            :alt="`Image ${i}`"
+            :data-fancybox="album.id"
+          />
+          <!-- <NuxtLink
           to="/gallery/album-1"
           class="h-full w-full bg-slate-100 hover:bg-slate-200 rounded-md"
         >
@@ -36,8 +40,9 @@ useHead({
               />
             </svg>
           </div>
-        </NuxtLink>
-      </ImageGrid>
+        </NuxtLink> -->
+        </ImageGrid>
+      </div>
     </div>
   </div>
 </template>

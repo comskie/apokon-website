@@ -10,7 +10,7 @@ Fancybox.bind("[data-fancybox]", {
 
 <template>
   <div class="container">
-    <div class="grid sm:grid-cols-6 grid-cols-3 gap-4">
+    <div class="grid sm:grid-cols-6 md:grid-cols-7 grid-cols-3 gap-4">
       <slot />
     </div>
   </div>
