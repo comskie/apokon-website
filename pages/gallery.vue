@@ -3,14 +3,14 @@ useHead({
   title: "Gallery",
 });
 
-const { data: resData } = await useFetch("/api/gallery");
-const gallery = resData.value.data;
+const res = await useFetch("/api/gallery");
+const gallery = res.data.value.data;
 </script>
 
 <template>
   <div class="py-12 px-4">
     <div>
-      <div v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
+      <div v-if="!res.pending" v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
         <span class="font-semibold text-lg"> {{ album.title }} </span>
         <ImageGrid class="mt-2">
           <ImageTile
