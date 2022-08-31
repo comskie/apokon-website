@@ -10,7 +10,7 @@ const gallery = res.data.value.data;
 <template>
   <div class="py-12 px-4">
     <div>
-      <div v-if="!res.pending" v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
+      <div v-if="gallery !== null" v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
         <span class="font-semibold text-lg"> {{ album.title }} </span>
         <ImageGrid class="mt-2">
           <ImageTile
