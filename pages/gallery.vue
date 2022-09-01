@@ -3,14 +3,28 @@ useHead({
   title: "Gallery",
 });
 
-const res = await useFetch("/api/gallery");
-const gallery = res.data.value.data;
+const { data: gallery } = {
+  data: [
+    {
+      id: "2022-division-kickoff-and-hanging-of-tarps",
+      title: "BE 2022: DIVISION KICK-OFF & HANGING OF TARPS",
+      path: "/images/gallery/2022-division-kickoff-and-hanging-of-tarps",
+      length: 3,
+    },
+    {
+      id: "2022-school-kickoff-and-recorida",
+      title: "BE 2022 SCHOOL KICK-OFF & RECORIDA",
+      path: "/images/gallery/2022-school-kickoff-and-recorida",
+      length: 7,
+    },
+  ],
+};
 </script>
 
 <template>
   <div class="py-12 px-4">
     <div>
-      <div v-if="gallery !== null" v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
+      <div v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
         <span class="font-semibold text-lg"> {{ album.title }} </span>
         <ImageGrid class="mt-2">
           <ImageTile
