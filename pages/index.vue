@@ -14,7 +14,7 @@ const images = [
 
 <template>
   <div>
-    <carousel :images="images" :auto-slide-dynamic-direction="true" />
+    <Carousel :images="images" :autoSlideDynamicDirection="true" />
 
     <div class="grid md:grid-cols-2 gap-4 grid-cols-1 sm:p-12 p-4">
       <div class="flex items-center">
