@@ -8,7 +8,7 @@ useHead({
   <div class="flex justify-center relative">
     <article class="prose sm:prose-lg max-w-4xl text-justify py-12 px-4">
       <h1 class="text-center">History</h1>
-      <img src="/images/teachers.jpg" alt="Teachers" />
+      <nuxt-img src="/images/teachers.jpg" alt="Teachers" />
       <h2 class="text-center">APOKON ELEMENTARY SCHOOL</h2>
 
       <p class="indent-4">

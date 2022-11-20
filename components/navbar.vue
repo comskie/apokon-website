@@ -38,7 +38,7 @@ const { isMenuActive, toggleMenu } = useMenu();
         to="/"
         class="inline-flex p-2 hover:text-indigo-500 items-center justify-center gap-2 hover:bg-indigo-50"
       >
-        <img
+        <nuxt-img
           src="/logo.png"
           alt="Apokon Elementary School Logo"
           class="h-10 w-10 rounded-full overflow-clip inline"

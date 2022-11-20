@@ -122,7 +122,7 @@ onMounted(() => {
           isActiveImageByIndex(imageIndex) ? 'translate-x-0' : '',
         ]"
       >
-        <img :src="imageUrl" :alt="imageUrl" class="block w-full" />
+        <nuxt-img :src="imageUrl" :alt="imageUrl" class="block w-full" />
       </div>
     </div>
 

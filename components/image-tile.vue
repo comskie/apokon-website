@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <img
+  <nuxt-img
     class="aspect-square h-full w-full object-cover object-center rounded hover:cursor-pointer hover:opacity-60 ease-linear transition-opacity"
     :src="src"
     :alt="alt"
