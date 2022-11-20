@@ -6,13 +6,13 @@ useHead({
 const { data: gallery } = {
   data: [
     {
-      id: "2022-division-kickoff-and-hanging-of-tarps",
+      slug: "2022-division-kickoff-and-hanging-of-tarps",
       title: "BE 2022: DIVISION KICK-OFF & HANGING OF TARPS",
       path: "/images/gallery/2022-division-kickoff-and-hanging-of-tarps",
       length: 3,
     },
     {
-      id: "2022-school-kickoff-and-recorida",
+      slug: "2022-school-kickoff-and-recorida",
       title: "BE 2022 SCHOOL KICK-OFF & RECORIDA",
       path: "/images/gallery/2022-school-kickoff-and-recorida",
       length: 7,
@@ -24,38 +24,16 @@ const { data: gallery } = {
 <template>
   <div class="py-12 px-4">
     <div>
-      <div v-for="album in gallery" :key="album.id" class="first:mt-0 mt-12">
+      <div v-for="album in gallery" :key="album.slug" class="first:mt-0 mt-12">
         <span class="font-semibold text-lg"> {{ album.title }} </span>
-        <ImageGrid class="mt-2">
-          <ImageTile
-            v-for="i in album.length"
-            :key="i"
-            :src="`${album.path}/${i}.jpg`"
-            :alt="`Image ${i}`"
-            :data-fancybox="album.id"
-          />
-          <!-- <NuxtLink
-          to="/gallery/album-1"
-          class="h-full w-full bg-slate-100 hover:bg-slate-200 rounded-md"
-        >
-          <div class="flex justify-center items-center h-full w-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </div>
-        </NuxtLink> -->
-        </ImageGrid>
+        <ImageGrid
+          class="mt-2"
+          :album-slug="album.slug"
+          :images="Array.from({ length: album.length }).map((_, index) => ({
+            image: `${album.path}/${index + 1}.jpg`,
+            alt: `${album.title} ${index + 1}`,
+          }))"
+        />
       </div>
     </div>
   </div>

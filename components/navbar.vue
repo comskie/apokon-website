@@ -42,9 +42,11 @@ const { isMenuActive, toggleMenu } = useMenu();
           src="/logo.png"
           alt="Apokon Elementary School Logo"
           class="h-10 w-10 rounded-full overflow-clip inline"
+          format="webp"
+          quality="50"
         />
         <span
-          class="font-semibold tracking-wide hidden sm:block text-indigo-500 uppercase"
+          class="font-bold tracking-wide hidden sm:block text-indigo-600 uppercase"
         >
           Apokon Elementary School
         </span>
@@ -53,14 +55,28 @@ const { isMenuActive, toggleMenu } = useMenu();
       <div class="flex-grow flex justify-end">
         <!-- Hide in small devices -->
         <div class="sm:grid hidden grid-flow-col">
-          <NavLink to="/" :isActive="isRouteActive('/')"> Home </NavLink>
-          <NavLink to="/history" :isActive="isRouteActive('/history')">
+          <NavLink to="/" :isActive="isRouteActive('/')" tabindex="0">
+            Home
+          </NavLink>
+          <NavLink
+            to="/history"
+            :isActive="isRouteActive('/history')"
+            tabindex="0"
+          >
             History
           </NavLink>
-          <NavLink to="/admissions" :isActive="isRouteActive('/admissions')">
+          <NavLink
+            to="/admissions"
+            :isActive="isRouteActive('/admissions')"
+            tabindex="0"
+          >
             Admissions
           </NavLink>
-          <NavLink to="/gallery" :isActive="isRouteActive('/gallery')">
+          <NavLink
+            to="/gallery"
+            :isActive="isRouteActive('/gallery')"
+            tabindex="0"
+          >
             Gallery
           </NavLink>
         </div>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PropType } from 'vue';
+import { PropType } from "vue";
 
 const {
   images,
@@ -11,7 +11,7 @@ const {
 } = defineProps({
   images: {
     type: Array<string>,
-    required: true
+    required: true,
   },
   slidingDuration: {
     type: Number,
@@ -19,22 +19,22 @@ const {
   },
   autoSlide: {
     type: Boolean,
-    default: true
+    default: true,
   },
   autoSlideDuration: {
     type: Number,
-    default: 5000
+    default: 5000,
   },
   autoSlideDirection: {
-    type: String as PropType<'left' | 'right'>,
-    default: 'right',
-    validator: (value: string) => ['left', 'right'].includes(value)
+    type: String as PropType<"left" | "right">,
+    default: "right",
+    validator: (value: string) => ["left", "right"].includes(value),
   },
   autoSlideDynamicDirection: {
     type: Boolean,
     default: false,
-  }
-})
+  },
+});
 
 const dynamicAutoSlideDirection = ref(autoSlideDirection);
 
@@ -57,7 +57,7 @@ function slideNext() {
   setActiveImage((activeImageIndex.value + 1) % images.length);
 
   if (autoSlideDynamicDirection) {
-    dynamicAutoSlideDirection.value = 'right';
+    dynamicAutoSlideDirection.value = "right";
   }
 }
 
@@ -65,7 +65,7 @@ function slidePrevious() {
   setActiveImage((activeImageIndex.value - 1 + images.length) % images.length);
 
   if (autoSlideDynamicDirection) {
-    dynamicAutoSlideDirection.value = 'left';
+    dynamicAutoSlideDirection.value = "left";
   }
 }
 
@@ -76,15 +76,17 @@ function isActiveImageByIndex(imageIndex: number) {
 onMounted(() => {
   if (autoSlide) {
     setInterval(() => {
-      const direction = autoSlideDynamicDirection ? dynamicAutoSlideDirection.value : autoSlideDirection;
-      if (direction === 'right') {
+      const direction = autoSlideDynamicDirection
+        ? dynamicAutoSlideDirection.value
+        : autoSlideDirection;
+      if (direction === "right") {
         slideNext();
       } else {
         slidePrevious();
       }
     }, autoSlideDuration);
   }
-})
+});
 </script>
 
 <template>
@@ -122,7 +124,13 @@ onMounted(() => {
           isActiveImageByIndex(imageIndex) ? 'translate-x-0' : '',
         ]"
       >
-        <nuxt-img :src="imageUrl" :alt="imageUrl" class="block w-full" />
+        <nuxt-img
+          :src="imageUrl"
+          :alt="imageUrl"
+          format="webp"
+          quality="70"
+          class="block w-full"
+        />
       </div>
     </div>
 
