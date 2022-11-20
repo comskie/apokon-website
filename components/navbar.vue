@@ -42,6 +42,8 @@ const { isMenuActive, toggleMenu } = useMenu();
           src="/logo.png"
           alt="Apokon Elementary School Logo"
           class="h-10 w-10 rounded-full overflow-clip inline"
+          height="80"
+          width="80"
           format="webp"
           quality="50"
         />
