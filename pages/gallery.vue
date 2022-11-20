@@ -30,7 +30,7 @@ const { data: gallery } = {
           class="mt-2"
           :album-slug="album.slug"
           :images="Array.from({ length: album.length }).map((_, index) => ({
-            image: `${album.path}/${index + 1}.jpg`,
+            path: `${album.path}/${index + 1}.jpg`,
             alt: `${album.title} ${index + 1}`,
           }))"
         />
